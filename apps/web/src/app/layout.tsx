@@ -6,6 +6,7 @@ import { GA4Script } from "@/components/analytics/ga4-script";
 import { AmplitudeScript } from "@/components/analytics/amplitude-script";
 import { CookieConsent } from "@/components/analytics/cookie-consent";
 import { baseUrl } from "@/lib/base-url";
+import { APP_DESCRIPTION, APP_NAME } from "@/lib/branding";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,25 +16,22 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "OpenClaw CRM",
-    template: "%s | OpenClaw CRM",
+    default: APP_NAME,
+    template: `%s | ${APP_NAME}`,
   },
-  description:
-    "The CRM your AI agent already knows how to use. Open-source, self-hosted, with native OpenClaw Bot integration.",
+  description: APP_DESCRIPTION,
   metadataBase: new URL(baseUrl),
   openGraph: {
-    title: "OpenClaw CRM",
-    description:
-      "The CRM your AI agent already knows how to use. Open-source, self-hosted, with native OpenClaw Bot integration.",
-    siteName: "OpenClaw CRM",
+    title: APP_NAME,
+    description: APP_DESCRIPTION,
+    siteName: APP_NAME,
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "OpenClaw CRM",
-    description:
-      "The CRM your AI agent already knows how to use. Open-source, self-hosted, with native OpenClaw Bot integration.",
+    title: APP_NAME,
+    description: APP_DESCRIPTION,
   },
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? {

@@ -17,6 +17,7 @@ import { LandingNav } from "@/components/landing/landing-nav";
 import { JsonLd } from "@/components/json-ld";
 import { TrackedLink, TrackedAnchor } from "@/components/analytics/tracked-link";
 import { baseUrl } from "@/lib/base-url";
+import { APP_DESCRIPTION, APP_NAME, APP_SHORT_NAME, APP_TAGLINE, GITHUB_URL } from "@/lib/branding";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -28,16 +29,16 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "OpenClaw CRM",
-  url: "https://openclaw-crm.402box.io",
-  logo: "https://openclaw-crm.402box.io/favicon.ico",
-  sameAs: ["https://github.com/giorgosn/openclaw-crm", "https://x.com/402BoxIO"],
+  name: APP_NAME,
+  url: baseUrl,
+  logo: `${baseUrl}/favicon.ico`,
+  sameAs: [GITHUB_URL],
 };
 
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "OpenClaw CRM",
+  name: APP_NAME,
   applicationCategory: "BusinessApplication",
   operatingSystem: "Linux, macOS, Windows",
   offers: {
@@ -45,8 +46,7 @@ const softwareSchema = {
     price: "0",
     priceCurrency: "USD",
   },
-  description:
-    "The CRM your AI agent already knows how to use. Open-source, self-hosted, with native OpenClaw Bot integration.",
+  description: APP_DESCRIPTION,
 };
 
 const homeFaqSchema = {
@@ -55,26 +55,26 @@ const homeFaqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What is OpenClaw CRM?",
+      name: `What is ${APP_NAME}?`,
       acceptedAnswer: {
         "@type": "Answer",
-        text: "OpenClaw CRM is a free, open-source, self-hosted CRM with native AI agent integration. Your AI agent manages contacts, deals, tasks, and notes through natural language. It ships with a built-in AI chat assistant, a full REST API, and deploys with Docker Compose. MIT licensed with no per-seat pricing.",
+        text: `${APP_NAME} is a CRM for EV charging operators. Manage sites, chargers, deals, maintenance logs, and customer relationships in one place, with a built-in AI assistant and full REST API.`,
       },
     },
     {
       "@type": "Question",
-      name: "How does the AI agent work with OpenClaw CRM?",
+      name: `How does the AI assistant work with ${APP_NAME}?`,
       acceptedAnswer: {
         "@type": "Answer",
-        text: "OpenClaw CRM integrates with your OpenClaw Bot in two minutes. Generate a skill file from Settings, drop it into your agent config, and your bot can create contacts, update deals, log notes, search data, and manage tasks from wherever you already talk to it. Inside the CRM, a built-in AI chat assistant also analyzes your data and takes actions.",
+        text: `${APP_NAME} includes built-in AI chat to query and update your data in plain English. You can also connect external AI agents via API keys and a generated skill file from Settings.`,
       },
     },
     {
       "@type": "Question",
-      name: "Is OpenClaw CRM free?",
+      name: `Is ${APP_NAME} free?`,
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. OpenClaw CRM is MIT licensed and completely free. There is no per-seat pricing and no paywalled features. You can use the hosted version or self-host it on your own infrastructure with full data ownership.",
+        text: `Yes. ${APP_NAME} is MIT licensed. Use the hosted version or self-host on your own infrastructure with full data ownership.`,
       },
     },
   ],
@@ -102,18 +102,18 @@ export default function LandingPage() {
             href="/"
             className="text-[15px] sm:text-[16px] font-semibold tracking-[-0.015em] text-foreground transition-opacity hover:opacity-70"
           >
-            OpenClaw{" "}
+            {APP_SHORT_NAME}{" "}
             <span className="font-normal text-muted-foreground/60">CRM</span>
           </Link>
           <div className="flex items-center">
             {/* Utility group */}
             <div className="flex items-center gap-1.5 sm:gap-3 mr-3 sm:mr-6">
               <TrackedAnchor
-                href="https://github.com/giorgosn/openclaw-crm"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full p-2 text-muted-foreground/50 transition-all hover:text-foreground hover:bg-foreground/[0.05]"
-                eventProps={{ url: "https://github.com/giorgosn/openclaw-crm", link_text: "GitHub nav icon" }}
+                eventProps={{ url: GITHUB_URL, link_text: "GitHub nav icon" }}
               >
                 <GitHubLogoIcon className="h-[18px] w-[18px]" />
               </TrackedAnchor>
@@ -152,17 +152,16 @@ export default function LandingPage() {
       <section className="relative mx-auto max-w-5xl px-6 pt-36 pb-12 sm:pt-48 sm:pb-20">
         <div className="text-center">
           <h1 className="brand-reveal text-5xl font-medium tracking-[-0.04em] leading-[0.92] sm:text-7xl lg:text-[6rem]">
-            OpenClaw{" "}
+            {APP_SHORT_NAME}{" "}
             <span className="text-muted-foreground/50">CRM</span>
           </h1>
 
           <p className="landing-fade-up mt-6 text-2xl font-normal tracking-[-0.02em] leading-snug text-muted-foreground sm:text-3xl lg:text-[2.25rem]">
-            The CRM your AI agent
-            <br className="hidden sm:block" /> already knows how to use.
+            {APP_TAGLINE}
           </p>
 
           <p className="landing-fade-up-1 mt-6 text-[15px] leading-relaxed text-muted-foreground/70">
-            Open-source. Self-hosted. Connect your OpenClaw Bot in 2 minutes.
+            Sites, chargers, deals, and maintenance — with AI built in.
           </p>
 
           <div className="landing-fade-up-2 mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -175,11 +174,11 @@ export default function LandingPage() {
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </TrackedLink>
             <TrackedAnchor
-              href="https://github.com/giorgosn/openclaw-crm"
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-foreground/15 dark:border-white/15 px-5 py-2.5 text-[13px] font-medium text-foreground shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all hover:border-foreground/30 dark:hover:border-white/25 hover:bg-accent hover:shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
-              eventProps={{ url: "https://github.com/giorgosn/openclaw-crm", link_text: "View on GitHub" }}
+              eventProps={{ url: GITHUB_URL, link_text: "View on GitHub" }}
             >
               <GitHubLogoIcon className="h-3.5 w-3.5" />
               View on GitHub
@@ -196,7 +195,7 @@ export default function LandingPage() {
               {/* Terminal title bar */}
               <div className="flex items-center border-b border-white/[0.05] bg-[#111113] px-6 py-3">
                 <span className="text-[12px] font-medium text-white/40">
-                  OpenClaw Bot
+                  AI agent
                 </span>
               </div>
               {/* Terminal body */}
@@ -212,7 +211,7 @@ export default function LandingPage() {
       <section className="relative mx-auto max-w-5xl px-6 pb-28 sm:pb-40">
         <ScrollReveal>
           <p className="mb-10 text-center text-[12px] font-medium uppercase tracking-[0.12em] text-muted-foreground/50">
-            Why OpenClaw
+            Why {APP_SHORT_NAME}
           </p>
         </ScrollReveal>
         <div className="grid gap-5 sm:grid-cols-3 sm:gap-5">
@@ -222,8 +221,8 @@ export default function LandingPage() {
                 Your agent runs your CRM
               </h3>
               <p className="mt-2 text-[14px] leading-[1.65] text-muted-foreground">
-                Connect your OpenClaw Bot in 2 minutes. Manage contacts, deals,
-                tasks from wherever you already talk to your agent.
+                Track sites, chargers, and deals in one place. Connect an AI
+                agent via API when you need hands-free updates.
               </p>
             </div>
           </ScrollReveal>
@@ -317,7 +316,7 @@ export default function LandingPage() {
       <footer className="border-t border-border/15">
         <div className="mx-auto flex max-w-5xl flex-col sm:flex-row items-center justify-between gap-4 px-6 py-6 sm:py-8">
           <span className="text-[12px] text-muted-foreground/60">
-            OpenClaw CRM
+            {APP_NAME}
           </span>
           <div className="flex items-center gap-5">
             <Link
@@ -339,11 +338,11 @@ export default function LandingPage() {
               Compare
             </Link>
             <TrackedAnchor
-              href="https://github.com/giorgosn/openclaw-crm"
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-[12px] text-muted-foreground/60 transition-colors hover:text-muted-foreground"
-              eventProps={{ url: "https://github.com/giorgosn/openclaw-crm", link_text: "GitHub footer" }}
+              eventProps={{ url: GITHUB_URL, link_text: "GitHub footer" }}
             >
               GitHub
             </TrackedAnchor>

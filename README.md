@@ -1,38 +1,38 @@
 <p align="center">
-  <strong>OpenClaw</strong> <em>CRM</em>
+  <strong>Enertech</strong> <em>CRM</em>
 </p>
 
 <p align="center">
   The CRM your AI agent already knows how to use.<br>
-  Open-source. Self-hosted. Connect your OpenClaw Bot in 2 minutes.
+  Open-source. Self-hosted. Connect your AI agent in 2 minutes.
 </p>
 
 <p align="center">
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"></a>
-  <a href="https://github.com/giorgosn/openclaw-crm/stargazers"><img src="https://img.shields.io/github/stars/giorgosn/openclaw-crm?style=social" alt="GitHub Stars"></a>
+  <a href="https://github.com/Pivoteer/enertech-CRM/stargazers"><img src="https://img.shields.io/github/stars/giorgosn/openclaw-crm?style=social" alt="GitHub Stars"></a>
   <img src="https://img.shields.io/badge/TypeScript-100%25-3178C6" alt="TypeScript">
   <img src="https://img.shields.io/badge/Next.js-15-000000" alt="Next.js 15">
 </p>
 
 <p align="center">
-  <a href="https://openclaw-crm.402box.io">Live Demo</a> · <a href="https://openclaw-crm.402box.io/docs">Docs</a> · <a href="https://openclaw-crm.402box.io/llms-api.txt">API Reference</a>
+  <a href="https://enertech-crm.vercel.app">Live Demo</a> · <a href="https://enertech-crm.vercel.app/docs">Docs</a> · <a href="https://enertech-crm.vercel.app/llms-api.txt">API Reference</a>
 </p>
 
 ---
 
-## Why OpenClaw CRM
+## Why Enertech CRM
 
-Most CRMs are closed-source, expensive, and impossible for AI agents to work with natively. OpenClaw CRM is different: it ships with a full REST API, machine-readable docs, and first-class OpenClaw Bot integration. Your AI agent can search contacts, create deals, update records, and manage tasks without any glue code.
+Most CRMs are closed-source, expensive, and impossible for AI agents to work with natively. Enertech CRM is different: it ships with a full REST API, machine-readable docs, and first-class AI agent integration. Your AI agent can search contacts, create deals, update records, and manage tasks without any glue code.
 
 Self-host it on your own server. No vendor lock-in, no per-seat pricing, no data leaving your infrastructure.
 
-## OpenClaw Bot Integration
+## AI agent Integration
 
-OpenClaw CRM plugs directly into your [OpenClaw Bot](https://openclaw-crm.402box.io/docs#openclaw-bot). Generate a SKILL.md and config from **Settings > OpenClaw**, drop them into your bot's skills folder, and your agent can manage your CRM through natural language.
+Enertech CRM plugs directly into your [AI agent](https://enertech-crm.vercel.app/docs#openclaw-bot). Generate a SKILL.md and config from **Settings > Agent API**, drop them into your bot's skills folder, and your agent can manage your CRM through natural language.
 
 - 40+ REST API endpoints your bot can call
 - Bearer token auth with `oc_sk_` prefix API keys
-- Machine-readable docs at [`/llms-api.txt`](https://openclaw-crm.402box.io/llms-api.txt) and [`/openapi.json`](https://openclaw-crm.402box.io/openapi.json)
+- Machine-readable docs at [`/llms-api.txt`](https://enertech-crm.vercel.app/llms-api.txt) and [`/openapi.json`](https://enertech-crm.vercel.app/openapi.json)
 
 ## Features
 
@@ -91,8 +91,8 @@ Talk to your CRM data in plain English. Powered by [OpenRouter](https://openrout
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/giorgosn/openclaw-crm.git
-cd openclaw-crm
+git clone https://github.com/Pivoteer/enertech-CRM.git
+cd enertech-CRM
 pnpm install
 ```
 
@@ -168,7 +168,7 @@ See `.env.example` for all configurable environment variables.
 ## Project Structure
 
 ```
-openclaw-crm/
+enertech-CRM/
 ├── apps/web/                  # Next.js application
 │   ├── src/
 │   │   ├── app/               # App Router pages & API routes
@@ -220,7 +220,7 @@ REST API at `/api/v1/` with Bearer token authentication.
 | `/api/v1/chat/conversations` | GET, POST | Chat conversations |
 | `/api/v1/chat/tool-confirm` | POST | Approve/reject AI writes |
 
-Full API documentation at [`/llms-api.txt`](https://openclaw-crm.402box.io/llms-api.txt) and [`/openapi.json`](https://openclaw-crm.402box.io/openapi.json).
+Full API documentation at [`/llms-api.txt`](https://enertech-crm.vercel.app/llms-api.txt) and [`/openapi.json`](https://enertech-crm.vercel.app/openapi.json).
 
 ## Database Schema
 

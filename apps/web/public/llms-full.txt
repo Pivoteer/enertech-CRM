@@ -1,12 +1,12 @@
-# OpenClaw CRM:Complete Product Documentation
+# Enertech CRM:Complete Product Documentation
 # Version: 1.0
 # For product overview: /llms.txt
 # For API endpoint reference only, see: /llms-api.txt
 # OpenAPI spec: /openapi.json
 
-## What is OpenClaw CRM?
+## What is Enertech CRM?
 
-OpenClaw CRM is a free, open-source, self-hosted CRM (Customer Relationship Manager). It is a clone of Attio (attio.com) designed for everyday users. It runs on your own server:no vendor lock-in, no per-seat pricing, no data leaving your infrastructure.
+Enertech CRM is a free, open-source, self-hosted CRM (Customer Relationship Manager). It is a clone of Attio (attio.com) designed for everyday users. It runs on your own server:no vendor lock-in, no per-seat pricing, no data leaving your infrastructure.
 
 Stack: Next.js 15, TypeScript, PostgreSQL, Drizzle ORM, Better Auth, shadcn/ui, TanStack Table, dnd-kit, TipTap.
 
@@ -24,7 +24,7 @@ Records are individual entries within an object. A person is a record in the Peo
 Attributes are the fields (columns) on an object. Each attribute has a type that determines what kind of data it stores and how it's displayed.
 
 ### Typed EAV Data Model
-OpenClaw CRM uses a hybrid typed Entity-Attribute-Value model. The `record_values` table stores values per-attribute with typed columns:
+Enertech CRM uses a hybrid typed Entity-Attribute-Value model. The `record_values` table stores values per-attribute with typed columns:
 - text_value (text, email_address, phone_number, domain, location)
 - number_value (number, currency, rating)
 - date_value (date)

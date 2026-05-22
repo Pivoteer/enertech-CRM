@@ -1,22 +1,22 @@
-# OpenClaw CRM
+# Enertech CRM
 
-> The CRM your AI agent already knows how to use. Open-source, self-hosted, with native OpenClaw Bot integration.
+> The CRM your AI agent already knows how to use. Open-source, self-hosted, with native AI agent integration.
 
 ## Overview
 
-OpenClaw CRM is a free, open-source, self-hosted CRM built for AI-native workflows. It ships with a full REST API, machine-readable documentation, and first-class OpenClaw Bot integration so your AI agent can manage contacts, deals, tasks, and notes without any glue code.
+Enertech CRM is a free, open-source, self-hosted CRM built for AI-native workflows. It ships with a full REST API, machine-readable documentation, and first-class AI agent integration so your AI agent can manage contacts, deals, tasks, and notes without any glue code.
 
-- Website: https://openclaw-crm.402box.io
-- Docs: https://openclaw-crm.402box.io/docs
-- GitHub: https://github.com/giorgosn/openclaw-crm
+- Website: https://enertech-crm.vercel.app
+- Docs: https://enertech-crm.vercel.app/docs
+- GitHub: https://github.com/Pivoteer/enertech-CRM
 - License: MIT
 
 ## Key Pages
 
-- [Homepage](https://openclaw-crm.402box.io): product overview, features, and signup
-- [Documentation](https://openclaw-crm.402box.io/docs): setup guides, OpenClaw Bot integration, API keys, data import
-- [Blog](https://openclaw-crm.402box.io/blog): product updates and guides
-- [Comparisons](https://openclaw-crm.402box.io/compare): how OpenClaw CRM compares to other CRMs
+- [Homepage](https://enertech-crm.vercel.app): product overview, features, and signup
+- [Documentation](https://enertech-crm.vercel.app/docs): setup guides, AI agent integration, API keys, data import
+- [Blog](https://enertech-crm.vercel.app/blog): product updates and guides
+- [Comparisons](https://enertech-crm.vercel.app/compare): how Enertech CRM compares to other CRMs
 
 ## What It Does
 
@@ -30,9 +30,9 @@ OpenClaw CRM is a free, open-source, self-hosted CRM built for AI-native workflo
 - **CSV Import/Export**: bulk data import with column mapping
 - **Dark & Light Mode**: full theme support
 
-## OpenClaw Bot Integration
+## AI agent Integration
 
-Generate a SKILL.md and config from Settings > OpenClaw, drop them into your OpenClaw Bot's skills folder, and your agent can manage your CRM through natural language. 40+ API endpoints, bearer token auth, machine-readable docs.
+Generate a SKILL.md and config from Settings > Agent API, drop them into your AI agent's skills folder, and your agent can manage your CRM through natural language. 40+ API endpoints, bearer token auth, machine-readable docs.
 
 ## Tech Stack
 
@@ -42,12 +42,12 @@ Next.js 15 (App Router), TypeScript, PostgreSQL 16, Drizzle ORM, Better Auth, sh
 
 Full REST API at `/api/v1/` with Bearer token authentication (`oc_sk_` prefix).
 
-- Concise API reference: https://openclaw-crm.402box.io/llms-api.txt
-- Full product + API docs: https://openclaw-crm.402box.io/llms-full.txt
-- OpenAPI spec: https://openclaw-crm.402box.io/openapi.json
+- Concise API reference: https://enertech-crm.vercel.app/llms-api.txt
+- Full product + API docs: https://enertech-crm.vercel.app/llms-full.txt
+- OpenAPI spec: https://enertech-crm.vercel.app/openapi.json
 
 ## Self-Hosting
 
 Docker Compose deployment. Clone the repo, configure `.env`, run `docker compose up`. No vendor lock-in, no per-seat pricing, no data leaving your infrastructure.
 
-Detailed setup: https://openclaw-crm.402box.io/docs
+Detailed setup: https://enertech-crm.vercel.app/docs

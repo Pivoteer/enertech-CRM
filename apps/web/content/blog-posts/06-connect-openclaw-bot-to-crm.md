@@ -1,18 +1,18 @@
 ---
-title: "How to Connect Your OpenClaw Bot to OpenClaw CRM in 2 Minutes"
-slug: "connect-openclaw-bot-to-crm"
-description: "Step-by-step tutorial: generate a skill file, drop it into your OpenClaw Bot, and your agent manages your CRM. 2-minute setup."
+title: "How to Connect Your AI agent to Enertech CRM in 2 Minutes"
+slug: "connect-ai-agent-to-crm"
+description: "Step-by-step tutorial: generate a skill file, drop it into your AI agent, and your agent manages your CRM. 2-minute setup."
 date: "2026-02-19"
-author: "OpenClaw Team"
+author: "Enertech Team"
 category: "tutorial"
-keywords: ["OpenClaw Bot CRM", "CRM skill", "connect AI agent to CRM", "OpenClaw Bot tutorial", "agent CRM integration"]
+keywords: ["AI agent CRM", "CRM skill", "connect AI agent to CRM", "AI agent tutorial", "agent CRM integration"]
 ---
 
-# How to Connect Your OpenClaw Bot to OpenClaw CRM in 2 Minutes
+# How to Connect Your AI agent to Enertech CRM in 2 Minutes
 
 **Last updated:** February 2026
 
-Your OpenClaw Bot already manages your email, calendar, and whatever other tools you have connected. Adding a CRM to that list takes about 2 minutes. You generate a skill file inside OpenClaw CRM, drop it into your agent config, restart, and you are done. Your agent can then create contacts, update deals, log notes, and search your data from wherever you already talk to it.
+Your AI agent already manages your email, calendar, and whatever other tools you have connected. Adding a CRM to that list takes about 2 minutes. You generate a skill file inside Enertech CRM, drop it into your agent config, restart, and you are done. Your agent can then create contacts, update deals, log notes, and search your data from wherever you already talk to it.
 
 This tutorial walks through every step. No guesswork, no ambiguity.
 
@@ -20,22 +20,22 @@ This tutorial walks through every step. No guesswork, no ambiguity.
 
 Before you start, you need two things:
 
-1. **A running OpenClaw CRM instance.** You have two options:
-   - **Hosted (no setup):** Sign up at [openclaw-crm.402box.io](https://openclaw-crm.402box.io). You get a working CRM instance immediately, no infrastructure required. The web UI is your frontend for everything your bot adds.
-   - **Self-hosted:** Deploy via Docker Compose on your own server. See the [README on GitHub](https://github.com/openclaw-crm/openclaw-crm) for setup instructions. Your instance will be accessible at a URL you control (e.g., `https://crm.yourcompany.com` or `http://localhost:3001` for local development).
+1. **A running Enertech CRM instance.** You have two options:
+   - **Hosted (no setup):** Sign up at [enertech-crm.vercel.app](https://enertech-crm.vercel.app). You get a working CRM instance immediately, no infrastructure required. The web UI is your frontend for everything your bot adds.
+   - **Self-hosted:** Deploy via Docker Compose on your own server. See the [README on GitHub](https://github.com/Pivoteer/enertech-CRM) for setup instructions. Your instance will be accessible at a URL you control (e.g., `https://crm.yourcompany.com` or `http://localhost:3001` for local development).
 
-2. **An OpenClaw Bot.** Your agent should already be running and configured with at least a basic `openclaw.json` config file. If you are new to OpenClaw Bot, the [OpenClaw Bot quickstart](https://docs.openclaw.dev/bot/quickstart) covers initial setup.
+2. **An AI agent.** Your agent should already be running and configured with at least a basic `openclaw.json` config file. If you are new to AI agent, the [AI agent quickstart](https://docs.openclaw.dev/bot/quickstart) covers initial setup.
 
 That is it. No additional dependencies, no paid services required. The hosted version works out of the box, self-hosting gives you full data ownership.
 
 ## Step 1: Create an API Key
 
-Your OpenClaw Bot needs a way to authenticate with the CRM. API keys handle this.
+Your AI agent needs a way to authenticate with the CRM. API keys handle this.
 
-1. Open your OpenClaw CRM in a browser.
+1. Open your Enertech CRM in a browser.
 2. Navigate to **Settings > API Keys** (in the sidebar under your workspace settings).
 3. Click **"Create Key"**.
-4. Give the key a descriptive name, something like `openclaw-bot-production` or `agent-dev`.
+4. Give the key a descriptive name, something like `ai-agent-production` or `agent-dev`.
 5. Click **Create**.
 6. Copy the key immediately. It starts with `oc_sk_` and looks like this:
 
@@ -47,7 +47,7 @@ oc_sk_a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6
 
 ## Step 2: Open the Skill File Generator
 
-1. In OpenClaw CRM, navigate to **Settings > OpenClaw**.
+1. In Enertech CRM, navigate to **Settings > Agent API**.
 2. This is the integration configuration page. It knows your CRM's URL, your workspace schema, and all available API endpoints.
 
 You will see a 4-step wizard that generates a complete `SKILL.md` file for your agent.
@@ -101,17 +101,17 @@ Click **"Generate Skill File"** and the wizard produces a complete `SKILL.md` fi
 Create the skill directory if it does not already exist, then save the file:
 
 ```bash
-mkdir -p ~/.openclaw/skills/openclaw
+mkdir -p ~/.openclaw/skills/enertech
 ```
 
 Paste or move the downloaded file into the directory:
 
 ```bash
 # If you copied to clipboard:
-pbpaste > ~/.openclaw/skills/openclaw/SKILL.md
+pbpaste > ~/.openclaw/skills/enertech/SKILL.md
 
 # Or if you downloaded the file:
-mv ~/Downloads/SKILL.md ~/.openclaw/skills/openclaw/SKILL.md
+mv ~/Downloads/SKILL.md ~/.openclaw/skills/enertech/SKILL.md
 ```
 
 ## Step 5: Add the Config Snippet
@@ -123,7 +123,7 @@ Open your `openclaw.json` configuration file and add the CRM skill reference. If
   "skills": [
     {
       "name": "openclaw-crm",
-      "path": "~/.openclaw/skills/openclaw/SKILL.md",
+      "path": "~/.openclaw/skills/enertech/SKILL.md",
       "description": "Manage CRM data: contacts, companies, deals, tasks, notes, and more.",
       "enabled": true
     }
@@ -135,7 +135,7 @@ If you already have other skills configured (such as Slack, Discord, or email), 
 
 ## Step 6: Restart Your Agent
 
-Your OpenClaw Bot picks up new skills on restart. Stop the agent and start it again:
+Your AI agent picks up new skills on restart. Stop the agent and start it again:
 
 ```bash
 openclaw stop
@@ -159,7 +159,7 @@ If you see an error instead, double-check that the file path in `openclaw.json` 
 
 ## Step 7: Test It
 
-Time to verify everything works. Open a conversation with your OpenClaw Bot (in your terminal, chat interface, or wherever you normally talk to it) and ask:
+Time to verify everything works. Open a conversation with your AI agent (in your terminal, chat interface, or wherever you normally talk to it) and ask:
 
 ```
 List all objects in the CRM.
@@ -218,11 +218,11 @@ Your agent handles each of these through the REST API, using the authentication 
 
 **Connection refused:** Your CRM is not reachable from where the agent runs. Verify the base URL in the skill file. For local dev, use `http://localhost:3001`. For remote servers, check that the port is open.
 
-**Stale schema:** If you add custom objects or attributes after generating the skill file, regenerate it from **Settings > OpenClaw**, replace the old file, and restart.
+**Stale schema:** If you add custom objects or attributes after generating the skill file, regenerate it from **Settings > Agent API**, replace the old file, and restart.
 
 ## What to Try Next
 
-Once your OpenClaw Bot is connected to the CRM, here are some things worth exploring:
+Once your AI agent is connected to the CRM, here are some things worth exploring:
 
 1. **"Summarize all deals closing this month and their total value."** Your agent queries the deals pipeline, filters by close date, and gives you a summary without opening the CRM.
 
@@ -236,13 +236,13 @@ The real power is not any single command. It is your agent working across all yo
 
 ---
 
-> [OpenClaw CRM on GitHub](https://github.com/openclaw-crm/openclaw-crm)
-> [OpenClaw Bot Documentation](https://docs.openclaw.dev/bot)
-> [Full API Reference](https://github.com/openclaw-crm/openclaw-crm/blob/main/docs/api-reference.md)
+> [Enertech CRM on GitHub](https://github.com/Pivoteer/enertech-CRM)
+> [AI agent Documentation](https://docs.openclaw.dev/bot)
+> [Full API Reference](https://github.com/Pivoteer/enertech-CRM/blob/main/docs/api-reference.md)
 
 ---
 
 **Related:**
-- [Two Ways AI Works in OpenClaw CRM: Built-in Assistant and Agent Integration](/blog/how-we-built-ai-into-crm)
+- [Two Ways AI Works in Enertech CRM: Built-in Assistant and Agent Integration](/blog/how-we-built-ai-into-crm)
 - [Why Self-Hosting Your CRM Matters When You Run an AI Agent](/blog/why-self-hosted-crm)
 - [CRM for Freelancers: Let Your AI Agent Handle the Busywork](/blog/crm-for-freelancers)
