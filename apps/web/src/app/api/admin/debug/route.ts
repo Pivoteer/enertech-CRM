@@ -1,13 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/db";
-import { users, accounts } from "@/db/schema/auth";
-import { eq } from "drizzle-orm";
+import { hashPassword } from "better-auth/crypto";
+import { randomBytes } from "crypto";
+
+function generateId() {
+  return randomBytes(16).toString("hex");
+}
 
 export async function GET(request: NextRequest) {
   const authHeader = request.headers.get("authorization");
   if (authHeader !== `Bearer debug-admin-xyz`) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
+
+  const { db } = await import("@/db");
+  const { users, accounts } = await import("@/db/schema/auth");
+  const { eq } = await import("drizzle-orm");
 
   const allUsers = await db.select({
     id: users.id,
@@ -40,18 +47,20 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "email, password, name required" }, { status: 400 });
   }
 
-  // Use better-auth's signUp internally by calling the action
-  const { auth } = await import("@/lib/auth");
-  const { generateId } = await import("better-auth/utils");
-
-  const userId = generateId();
-  const accountId = generateId();
+  const { db } = await import("@/db");
+  const { users, accounts } = await import("@/db/schema/auth");
+  const { eq } = await import("drizzle-orm");
 
   // Check if user already exists
   const existing = await db.select().from(users).where(eq(users.email, email)).limit(1);
   if (existing.length > 0) {
     return NextResponse.json({ error: "User already exists", userId: existing[0].id }, { status: 409 });
   }
+
+  // Hash password using the SAME algorithm better-auth uses (scrypt + NFKC normalization)
+  const passwordHash = await hashPassword(password);
+
+  const userId = generateId();
 
   // Create user
   await db.insert(users).values({
@@ -61,20 +70,14 @@ export async function POST(request: NextRequest) {
     emailVerified: false,
   });
 
-  // Create account with password hash
-  // Hash password using Web Crypto
-  const encoder = new TextEncoder();
-  const data = encoder.encode(password);
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-  const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, "0")).join("");
-
+  // Create account with properly hashed password
   await db.insert(accounts).values({
     id: generateId(),
     userId,
     accountId: email.toLowerCase(),
     providerId: "credential",
-    password: hashHex,
+    password: passwordHash,
   });
 
-  return NextResponse.json({ success: true, userId, email, tempPassword: password });
+  return NextResponse.json({ success: true, userId, email });
 }
