@@ -101,7 +101,7 @@ const ONBOARDING_STEPS = [
     title: "Add your first contact",
     description: "Import a spreadsheet or add someone manually",
     href: "/objects/people",
-    color: "text-emerald-500",
+    color: "text-foreground",
   },
   {
     id: "track-deal",
@@ -109,7 +109,7 @@ const ONBOARDING_STEPS = [
     title: "Track a deal",
     description: "Create a deal to follow an opportunity through your pipeline",
     href: "/objects/deals",
-    color: "text-amber-500",
+    color: "text-foreground",
   },
   {
     id: "try-ai",
@@ -117,7 +117,7 @@ const ONBOARDING_STEPS = [
     title: "Try the AI assistant",
     description: "Ask questions about your data in plain English",
     href: "/chat",
-    color: "text-violet-500",
+    color: "text-foreground",
   },
   {
     id: "invite-team",
@@ -125,7 +125,7 @@ const ONBOARDING_STEPS = [
     title: "Invite your team",
     description: "Add coworkers so everyone can collaborate",
     href: "/settings/members",
-    color: "text-blue-500",
+    color: "text-foreground",
   },
 ];
 
@@ -289,10 +289,10 @@ export default function HomePage() {
 
       {/* ── Onboarding (new users only) ──────────────── */}
       {showOnboarding && (
-        <Card className="border-primary/20 bg-primary/[0.02]">
+        <Card className="border-border bg-muted/30">
           <div className="flex items-center justify-between px-5 py-3 border-b border-border">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-primary" />
+              <Sparkles className="h-4 w-4 text-foreground" />
               <h2 className="text-sm font-medium">Get started</h2>
             </div>
             <button
@@ -336,10 +336,10 @@ export default function HomePage() {
       {hasData && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <Link href="/tasks">
-            <Card className="hover:shadow-md transition-shadow cursor-pointer border-blue-200/50 bg-blue-50/30 dark:border-blue-900/50 dark:bg-blue-950/20">
+            <Card className="hover:shadow-md transition-shadow cursor-pointer border-border bg-muted/30">
               <CardContent className="p-4 flex items-center gap-3">
-                <div className="rounded-lg bg-blue-100 dark:bg-blue-900/50 p-2">
-                  <ListTodo className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <div className="rounded-lg bg-muted p-2">
+                  <ListTodo className="h-5 w-5 text-foreground" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{stats.tasks}</p>
@@ -352,10 +352,10 @@ export default function HomePage() {
           </Link>
 
           <Link href="/objects/people">
-            <Card className="hover:shadow-md transition-shadow cursor-pointer border-emerald-200/50 bg-emerald-50/30 dark:border-emerald-900/50 dark:bg-emerald-950/20">
+            <Card className="hover:shadow-md transition-shadow cursor-pointer border-border bg-muted/30">
               <CardContent className="p-4 flex items-center gap-3">
-                <div className="rounded-lg bg-emerald-100 dark:bg-emerald-900/50 p-2">
-                  <Users className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+                <div className="rounded-lg bg-muted p-2">
+                  <Users className="h-5 w-5 text-foreground" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{stats.people}</p>
@@ -368,10 +368,10 @@ export default function HomePage() {
           </Link>
 
           <Link href="/objects/companies">
-            <Card className="hover:shadow-md transition-shadow cursor-pointer border-violet-200/50 bg-violet-50/30 dark:border-violet-900/50 dark:bg-violet-950/20">
+            <Card className="hover:shadow-md transition-shadow cursor-pointer border-border bg-muted/30">
               <CardContent className="p-4 flex items-center gap-3">
-                <div className="rounded-lg bg-violet-100 dark:bg-violet-900/50 p-2">
-                  <Building2 className="h-5 w-5 text-violet-600 dark:text-violet-400" />
+                <div className="rounded-lg bg-muted p-2">
+                  <Building2 className="h-5 w-5 text-foreground" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{stats.companies}</p>
@@ -384,10 +384,10 @@ export default function HomePage() {
           </Link>
 
           <Link href="/objects/deals">
-            <Card className="hover:shadow-md transition-shadow cursor-pointer border-amber-200/50 bg-amber-50/30 dark:border-amber-900/50 dark:bg-amber-950/20">
+            <Card className="hover:shadow-md transition-shadow cursor-pointer border-border bg-muted/30">
               <CardContent className="p-4 flex items-center gap-3">
-                <div className="rounded-lg bg-amber-100 dark:bg-amber-900/50 p-2">
-                  <Handshake className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                <div className="rounded-lg bg-muted p-2">
+                  <Handshake className="h-5 w-5 text-foreground" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{stats.deals}</p>
@@ -407,8 +407,8 @@ export default function HomePage() {
           onClick={() => router.push("/objects/people")}
           className="flex items-center gap-3 rounded-lg border border-border p-3 text-left hover:bg-muted/50 transition-colors"
         >
-          <div className="rounded-lg bg-emerald-100 dark:bg-emerald-900/50 p-2 shrink-0">
-            <UserPlus className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+          <div className="rounded-lg bg-muted p-2 shrink-0">
+            <UserPlus className="h-4 w-4 text-foreground" />
           </div>
           <div>
             <p className="text-sm font-medium">Add a contact</p>
@@ -420,8 +420,8 @@ export default function HomePage() {
           onClick={() => router.push("/objects/companies")}
           className="flex items-center gap-3 rounded-lg border border-border p-3 text-left hover:bg-muted/50 transition-colors"
         >
-          <div className="rounded-lg bg-violet-100 dark:bg-violet-900/50 p-2 shrink-0">
-            <Building2 className="h-4 w-4 text-violet-600 dark:text-violet-400" />
+          <div className="rounded-lg bg-muted p-2 shrink-0">
+            <Building2 className="h-4 w-4 text-foreground" />
           </div>
           <div>
             <p className="text-sm font-medium">Add a company</p>
@@ -433,8 +433,8 @@ export default function HomePage() {
           onClick={() => router.push("/objects/deals")}
           className="flex items-center gap-3 rounded-lg border border-border p-3 text-left hover:bg-muted/50 transition-colors"
         >
-          <div className="rounded-lg bg-amber-100 dark:bg-amber-900/50 p-2 shrink-0">
-            <Plus className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+          <div className="rounded-lg bg-muted p-2 shrink-0">
+            <Plus className="h-4 w-4 text-foreground" />
           </div>
           <div>
             <p className="text-sm font-medium">Track a deal</p>
@@ -462,7 +462,7 @@ export default function HomePage() {
         <Card>
           <div className="flex items-center justify-between px-4 py-3 border-b border-border">
             <div className="flex items-center gap-2">
-              <CheckSquare className="h-4 w-4 text-blue-500" />
+              <CheckSquare className="h-4 w-4 text-foreground" />
               <h2 className="text-sm font-medium">My Tasks</h2>
             </div>
             <Link
@@ -487,11 +487,11 @@ export default function HomePage() {
                 <p className="text-xs">No tasks yet</p>
                 <p className="text-xs mt-1">
                   Create one from any{" "}
-                  <Link href="/objects/people" className="text-primary hover:underline">
+                  <Link href="/objects/people" className="text-foreground hover:underline">
                     contact
                   </Link>
                   {" "}or{" "}
-                  <Link href="/objects/deals" className="text-primary hover:underline">
+                  <Link href="/objects/deals" className="text-foreground hover:underline">
                     deal
                   </Link>
                   {" "}page
@@ -514,9 +514,9 @@ export default function HomePage() {
                     className="shrink-0 mt-0.5"
                   >
                     {task.isCompleted ? (
-                      <Check className="h-4 w-4 text-primary" />
+                      <Check className="h-4 w-4 text-foreground" />
                     ) : (
-                      <Circle className="h-4 w-4 text-muted-foreground hover:text-primary transition-colors" />
+                      <Circle className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
                     )}
                   </button>
                   <div className="flex-1 min-w-0">
@@ -569,7 +569,7 @@ export default function HomePage() {
         <Card>
           <div className="flex items-center justify-between px-4 py-3 border-b border-border">
             <div className="flex items-center gap-2">
-              <StickyNote className="h-4 w-4 text-amber-500" />
+              <StickyNote className="h-4 w-4 text-foreground" />
               <h2 className="text-sm font-medium">Recent Notes</h2>
             </div>
             <Link
@@ -594,7 +594,7 @@ export default function HomePage() {
                 <p className="text-xs">No notes yet</p>
                 <p className="text-xs mt-1">
                   Open a{" "}
-                  <Link href="/objects/people" className="text-primary hover:underline">
+                  <Link href="/objects/people" className="text-foreground hover:underline">
                     contact
                   </Link>
                   {" "}to write your first note
@@ -657,7 +657,7 @@ export default function HomePage() {
           <Card className="group hover:shadow-md transition-all border-primary/10 hover:border-primary/30">
             <CardContent className="p-4 flex items-center gap-4">
               <div className="rounded-lg bg-primary/10 p-2.5 shrink-0">
-                <Bot className="h-5 w-5 text-primary" />
+                <Bot className="h-5 w-5 text-foreground" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium">Ask your CRM anything</p>
@@ -665,7 +665,7 @@ export default function HomePage() {
                   &quot;Show me deals closing this month&quot; or &quot;How many contacts did I add this week?&quot;
                 </p>
               </div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-primary transition-colors shrink-0" />
+              <ArrowRight className="h-4 w-4 text-muted-foreground/50 group-hover:text-foreground transition-colors shrink-0" />
             </CardContent>
           </Card>
         </Link>
