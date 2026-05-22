@@ -2,6 +2,7 @@ import "dotenv/config";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import * as schema from "./schema";
+import { statuses } from "./schema/objects";
 import { STANDARD_OBJECTS, DEAL_STAGES } from "@openclaw-crm/shared";
 
 async function seed() {
