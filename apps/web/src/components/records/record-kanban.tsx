@@ -352,18 +352,14 @@ function KanbanColumn({
       ref={setNodeRef}
       data-column-id={id}
       className={cn(
-        "flex w-72 shrink-0 flex-col rounded-lg border border-border/50 bg-card/50 transition-colors",
-        isOver && "border-primary/50 bg-primary/5"
+        "flex w-64 shrink-0 flex-col border border-border bg-card transition-colors",
+        isOver && "border-primary border-2"
       )}
     >
       {/* Column header */}
-      <div className="flex items-center gap-2 px-3 py-2.5 border-b border-border/50">
-        <div
-          className="h-2.5 w-2.5 rounded-full shrink-0"
-          style={{ backgroundColor: color }}
-        />
-        <span className="text-sm font-medium truncate">{title}</span>
-        <span className="ml-auto text-xs text-muted-foreground">{count}</span>
+      <div className="flex items-center gap-2 px-3 py-2.5 border-b border-border/30">
+        <span className="text-xs font-medium truncate uppercase tracking-widest text-muted-foreground">{title}</span>
+        <span className="ml-auto text-xs text-muted-foreground tabular-nums">{count}</span>
       </div>
 
       {/* Currency total */}
@@ -458,25 +454,25 @@ function KanbanCard({
       ref={setNodeRef}
       data-record-id={record.id}
       className={cn(
-        "group rounded-md border border-border/60 bg-background p-2.5 shadow-sm cursor-pointer hover:border-border transition-colors",
+        "group rounded-none border border-border bg-card cursor-pointer hover:bg-black hover:text-white transition-colors",
         isDragging && "opacity-30"
       )}
       onClick={onClick}
     >
-      <div className="flex items-start gap-1.5">
+      <div className="flex items-start gap-2 p-3">
         <button
           {...dragAttrs}
           {...listeners}
-          className="mt-0.5 shrink-0 cursor-grab opacity-0 group-hover:opacity-60 active:cursor-grabbing"
+          className="mt-0.5 shrink-0 cursor-grab opacity-0 group-hover:opacity-100 active:cursor-grabbing text-muted-foreground"
           onClick={(e) => e.stopPropagation()}
         >
-          <GripVertical className="h-3.5 w-3.5 text-muted-foreground" />
+          <GripVertical className="h-3.5 w-3.5" />
         </button>
         <div className="min-w-0 flex-1">
           <p className="text-sm font-medium truncate">{displayName}</p>
 
           {currencyVal?.amount != null && (
-            <p className="mt-0.5 text-xs text-muted-foreground">
+            <p className="mt-1 text-xs text-muted-foreground group-hover:text-white/70">
               {new Intl.NumberFormat("en-US", {
                 style: "currency",
                 currency: currencyVal.currencyCode || "USD",
@@ -485,12 +481,12 @@ function KanbanCard({
           )}
 
           {extraFields.length > 0 && (
-            <div className="mt-1.5 space-y-0.5">
+            <div className="mt-2 space-y-0.5">
               {extraFields.map((attr) => {
                 const val = record.values[attr.slug];
                 return (
-                  <p key={attr.slug} className="text-xs text-muted-foreground truncate">
-                    <span className="text-muted-foreground/60">{attr.title}: </span>
+                  <p key={attr.slug} className="text-xs text-muted-foreground group-hover:text-white/70 truncate">
+                    <span className="text-muted-foreground/50 group-hover:text-white/40">{attr.title}: </span>
                     {formatCardValue(val, attr.type)}
                   </p>
                 );
