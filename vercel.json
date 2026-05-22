@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npx turbo build --filter=@openclaw-crm/web",
+  "installCommand": "pnpm install",
+  "outputDirectory": ".next"
+}
